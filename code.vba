@@ -1,8 +1,9 @@
 Sub Domains()
-    ' Add new column header **(Will need to know the final file structure)
+    ' Add new column header
+    ' **(Will need to know the final file structure to replace A4)
     Cells(1, 4).Value = "Domains"
     
-    ' Set a variable for the column of interest (iMIS ID)
+    ' Set a variable for the column of interest (ID)
     Dim ID_column As Integer
     ID_column = 1
     
@@ -44,3 +45,4 @@ Sub Domains()
     Next i
 
 End Sub
+
