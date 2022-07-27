@@ -1,21 +1,35 @@
 Sub Domains()
-    ' Add new column header
-    ' **(Will need to know the final file structure to replace A4)
-    Cells(1, 4).Value = "Domains"
-    
+
+    ' ***** SET LOCATIONS FIRST! *****
+    ' Identify location of new column! Enter the number (ex: column D is 4)
+    Dim newCol As Integer
+    newCol = 4
+
+    ' Identify the location of the domain column!
+    Dim domainCol As Integer
+    domainCol = 3
+
     ' Set a variable for the column of interest (ID)
     Dim ID_column As Integer
     ID_column = 1
-    
+
+    '********************************
+    '********************************
+
+
+    ' Add new column header
+    Cells(1, newCol).Value = "Domains"
+
     ' Count rows
-    RCount = Selection.Rows.Count
+    RCount = Cells(Rows.Count, 1).End(xlUp).Row
+
     
     ' Set a variable to hold the domains temporarily
     Dim domain As String
     
     For i = 2 To RCount
         ' First, copy the domain column to a new column
-        Cells(i, 4).Value = Cells(i, 3).Value
+        Cells(i, newCol).Value = Cells(i, domainCol).Value
     Next i
     
     ' Loop through rows
@@ -25,10 +39,10 @@ Sub Domains()
         If Cells(i + 1, ID_column).Value = Cells(i, ID_column).Value Then
         
             ' Set the domain
-            domain = Cells(i, 4).Value
+            domain = Cells(i, newCol).Value
         
             ' Add domain into new column
-            Cells(i + 1, 4).Value = Cells(i + 1, 4).Value & "; " & domain
+            Cells(i + 1, newCol).Value = Cells(i + 1, newCol).Value & "; " & domain
         End If
         
     Next i
@@ -39,10 +53,11 @@ Sub Domains()
         If Cells(i, ID_column).Value = Cells(i - 1, ID_column).Value Then
         
             ' Delete the row!
-            Selection.Rows(i - 1).EntireRow.Delete
+            Cells(i - 1, 1).EntireRow.Delete
             
         End If
     Next i
 
 End Sub
+
 
