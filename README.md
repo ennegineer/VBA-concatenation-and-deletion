@@ -6,8 +6,8 @@ My use case for this script is to dedupe a list of companies and their email dom
 
 ## How to Run
 * Open a file in Excel (test file of dummy data included in this repo) and go to your developer tools to add a VBA module.
-* Copy `code.vba` and note that setting the new column header in line 3 may belong in a different column. My dummy data only has 3 columns, so 4 is sufficient.
-* Select all the data in your Excel file before you run the script. We are calculating the rows for the variable `RCount` based on your selection, so this is important.
+* Copy `code.vba` and update the settings within the asterisks, setting the new column header in line 6 to your new column. My dummy data only has 3 columns, so 4 is sufficient.
+* Select the column of your data you want to concatenate in the new column (line 10)
 * Run the script!
 
 Using the dummy data example, here is what the file looks like initially:
